@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 public class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
@@ -56,6 +57,13 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item)
     {
         fullLayout.closeDrawer(GravityCompat.START);
+
+        switch (item.getItemId())
+        {
+            case R.id.nav_home: Toast.makeText(this,"Hello home",Toast.LENGTH_SHORT).show();
+                                break;
+
+        }
 
 
         return false;
