@@ -61,8 +61,8 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId())
         {
             case R.id.nav_home: Toast.makeText(this,"Hello home",Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(this, Graph.class));
                                 break;
-
         }
 
 
