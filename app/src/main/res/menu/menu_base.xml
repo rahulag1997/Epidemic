@@ -4,9 +4,15 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_home_black_24dp"
-            android:title="Home" />
+            android:id="@+id/nav_bar"
+            android:icon="@drawable/ic_assessment_black_24dp"
+            android:title="Bar" />
+
+        <item
+            android:id="@+id/nav_line"
+            android:icon="@drawable/ic_timeline_black_24dp"
+            android:title="Line" />
+
 
 
     </group>
