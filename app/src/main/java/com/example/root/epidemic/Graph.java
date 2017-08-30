@@ -25,6 +25,7 @@ public class Graph extends BaseActivity {
             Toast.makeText(this,"You need to be connected to internet to submit a new request",Toast.LENGTH_SHORT).show();
             return;
         }
-        grview.loadUrl("https://docs.google.com/spreadsheets/d/e/2PACX-1vRcAXlEyLzL9vulgw4JlSQODV52rLG4rQLr0v9FRhyvJJqvi7xfa62a7MGDyrTp-yFd97EK9amd_QKq/pubchart?oid=234498120&format=interactive");
+        grview.getSettings().setJavaScriptEnabled(true);
+        grview.loadUrl("file:///android_asset/loadBarGraph.html");
     }
 }
