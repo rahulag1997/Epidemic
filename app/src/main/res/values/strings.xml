@@ -17,4 +17,7 @@
         <item>61-70</item>
         <item>71 above</item>
     </array>
+    <array name="types">
+        <item>Age</item>
+    </array>
 </resources>
