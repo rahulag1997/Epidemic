@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Epidemic</string>
     <string name="nav_drawer_opened">drawer opened</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+         AIzaSyCVgRhxoo2DeszZwAMW-MBkml8EGUMLYvk
+    </string>
     <string name="nav_drawer_closed">drawer closed</string>
     <array name="Age_Categories">
         <item>0-5</item>
@@ -20,4 +23,5 @@
     <array name="types">
         <item>Age</item>
     </array>
+    <string name="title_activity_maps">Map</string>
 </resources>

@@ -63,6 +63,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
                                 break;
             case R.id.nav_line: startActivity(new Intent(this, LineGraph.class));
                                 break;
+            case R.id.tp:       startActivity(new Intent(this,MapActivity.class));break;
         }
 
 
