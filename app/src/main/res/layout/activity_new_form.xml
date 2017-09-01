@@ -74,7 +74,7 @@
             android:padding="10dp"
             android:text="Location" />
 
-        <EditText
+        <TextView
             android:id="@+id/location_et"
             android:layout_width="0dp"
             android:layout_weight="16"

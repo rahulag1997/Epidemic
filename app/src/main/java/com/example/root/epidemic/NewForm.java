@@ -2,6 +2,7 @@ package com.example.root.epidemic;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
@@ -26,8 +27,8 @@ public class NewForm extends BaseActivity
 {
     private Spinner age_spinner;
     private String[] ageCategories;
-    private TextView date_tv;
-    private EditText name_et,location_et;
+    private TextView date_tv,location_et;
+    private EditText name_et;
     private final DecimalFormat dec_format=new DecimalFormat("#");
 
     @Override
@@ -42,7 +43,31 @@ public class NewForm extends BaseActivity
         setSpinner();
         date_tv=(TextView)findViewById(R.id.date_tv);
         name_et=(EditText)findViewById(R.id.name_et);
-        location_et=(EditText)findViewById(R.id.location_et);
+        location_et=(TextView)findViewById(R.id.location_et);
+        location_et.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                int requestCode=1;
+                startActivityForResult(new Intent(getApplicationContext(),MapActivity.class),requestCode);
+
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if(requestCode==1)
+        {
+            if(resultCode==RESULT_OK)
+            {
+                location_et.setText(data.getData().toString());
+            }
+        }
+
+
     }
 
     public void setDate(View view)
