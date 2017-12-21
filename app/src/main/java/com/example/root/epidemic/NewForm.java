@@ -25,10 +25,10 @@ import java.util.List;
 
 public class NewForm extends BaseActivity
 {
-    private Spinner age_spinner;
-    private String[] ageCategories;
+    private Spinner age_spinner, sex_spinner;
+    private String[] ageCategories, sexCategories;
     private TextView date_tv,location_et;
-    private EditText name_et;
+    private EditText name_et, sym_et;
     private final DecimalFormat dec_format=new DecimalFormat("#");
 
     @Override
@@ -43,6 +43,7 @@ public class NewForm extends BaseActivity
         setSpinner();
         date_tv=(TextView)findViewById(R.id.date_tv);
         name_et=(EditText)findViewById(R.id.name_et);
+        sym_et = (EditText)findViewById(R.id.sym_et);
         location_et=(TextView)findViewById(R.id.location_et);
         location_et.setOnClickListener(new View.OnClickListener()
         {
@@ -109,6 +110,11 @@ public class NewForm extends BaseActivity
         age_spinner=(Spinner)findViewById(R.id.age_spinner);
         ArrayAdapter<String> adapter=new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item,ageCategories);
         age_spinner.setAdapter(adapter);
+        sexCategories=getResources().getStringArray(R.array.Sex_Categories);
+        sex_spinner=(Spinner)findViewById(R.id.sex_spinner);
+        ArrayAdapter<String> s_adapter=new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item,sexCategories);
+        sex_spinner.setAdapter(s_adapter);
+
     }
 
     public void Submit(View view)
@@ -129,19 +135,23 @@ public class NewForm extends BaseActivity
             String age=age_spinner.getSelectedItem().toString();
             String location=location_et.getText().toString();
             String date=date_tv.getText().toString();
+            String sex = sex_spinner.getSelectedItem().toString();
+            String sym = sym_et.getText().toString();
 
             final String nameEntry="entry.1347838367=",ageEntry="entry.1325273191=",locationEntry="entry.1974303013=",dateEntry="entry.2136146747=";
+            final String sexEntry = "entry.1497308571=", symEntry= "entry.1423658388=";
             try
             {
                 name = URLEncoder.encode(name, "UTF-8");
                 location = URLEncoder.encode(location, "UTF-8");
                 age = URLEncoder.encode(age, "UTF-8");
                 date = URLEncoder.encode(date, "UTF-8");
+                sex = URLEncoder.encode(sex, "UTF-8");
             } catch (UnsupportedEncodingException e)
             {
                 Log.d("URL","Couldn't encode");
             }
-            String dataToPost =nameEntry+name+"&"+ageEntry+age+"&"+locationEntry+location+"&"+dateEntry+date;
+            String dataToPost =nameEntry+name+"&"+ageEntry+age+"&"+sexEntry+sex+"&"+locationEntry+location+"&"+dateEntry+date+"&"+symEntry+sym;
 
             new formSubmitClient().execute("https://docs.google.com/forms/d/1O2H_PBLWZTU6MO-0OJe-9ErsG5s2jXwPydHVszrMSjI/formResponse",dataToPost);
 

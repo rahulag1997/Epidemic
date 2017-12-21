@@ -20,6 +20,10 @@
         <item>61-70</item>
         <item>71 above</item>
     </array>
+    <array name="Sex_Categories">
+        <item>Male</item>
+        <item>Female</item>
+    </array>
     <array name="types">
         <item>Age</item>
     </array>
